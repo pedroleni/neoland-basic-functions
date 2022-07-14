@@ -48,6 +48,20 @@ console.log(sumFinal);
 
 
 
+/*-----------------------------------------------------------------------
+---------**Iteración #4: Calcular promedio de strings**------------------
+-----------------------------------------------------------------------*/
+
+const numbersPromedio = [12, 21, 38, 5, 45, 37, 6];
+
+
+const average = (listN) => {
+    //Reutilizamos la función del ejercicio anterior 
+    return sumAll(listN) / listN.length;
+}
+
+let promedio = average(numbersPromedio);
+console.log(promedio);
 
 
 
