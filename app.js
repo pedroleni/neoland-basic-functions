@@ -64,122 +64,22 @@ let promedio = average(numbersPromedio);
 console.log(promedio);
 
 /*-----------------------------------------------------------------------
----------------------**Iteración #6: Valores únicos**---------------------
+---------------------**Iteración #5: Calcular promedio de strings**---------------------
 -----------------------------------------------------------------------*/
 
-const counterWords = [
-    'code',
-    'repeat',
-    'eat',
-    'sleep',
-    'code',
-    'enjoy',
-    'sleep',
-    'code',
-    'enjoy',
-    'upgrade',
-    'code'
-  ];
+const mixedElements = [6, 1, 'Rayo', 1, 'vallecano', '10', 'upgrade', 8, 'hub'];
 
-  // tenemos que contar cuantos hay de cada elemento en el array repetido 
-const repeatCounter =(array) => {
-    //incializamos un contador y un array donde guardaremos el nombre del elemento y la cantidad 
-    let contador = 0;
-    let arrayRepeticiones = [];
+const promedio2 = (mixed) =>  {
+  let sum= 0;
+  for (let value of mixed ){
 
-    //recorremos el array introducido por parametro 
-    counterWords.forEach (( Element)=>{
-        //una vez salido del segudo bucle hay que volver a inicializar a 0 el contador para contar el siguiente elemento
-        contador =0;
+    if (typeof (value) == 'number'){sum += value}
+    else {sum += value.length}
+    //sum = typeof value.typeof == 'number' ? sum += value : (sum += value.length);
 
-        //ponemos un doble forEach para una vez cogido el elemento, iterarlo por todo el array de nuevo
-        //esto nos va a generar que los elementos repetidos los guarde en el arrayRpeticiones repetidos, pero luego lo solucionaremos 
-        counterWords.forEach ((repetidoElemento)=>{
+  }
+  return sum;
 
-            //si aparece, incrementaremos el contador
-            if (Element == repetidoElemento)contador++;})
-            //una vez contados guardamos en el array creado con el valor del elemento y su cantidad
-            arrayRepeticiones.push(Element+" "+contador)
-       
-    })
-    //Ahora vamos a hacer otro array con los valores sin repetir
-    let noRepet = [];
-
-    arrayRepeticiones.forEach( (elemento) => {
-        if (!noRepet.includes(elemento)) {
-            noRepet.push(elemento);
-        }
-        });
-    
-    return noRepet;
-    
 }
-
-console.log(repeatCounter(counterWords));
-
-//[ 'code 4', 'repeat 1', 'eat 1', 'sleep 2', 'enjoy 2', 'upgrade 1' ]
-
-
-/*-----------------------------------------------------------------------
----------------------**Iteración #6: Valores únicos**-------------------
------------------------------------------------------------------------*/
-
-
-//He modifiicado el array dado para que haya elementos repetidos y no sea tan 
-//sencillo como poner un simple indexOf para saber el primer indice
-const nameFinder = [
-    'Peter',
-    'Steve',
-    'Tony',
-    'Logan',
-    'Natasha',
-    'Clint',
-    'Tony',
-    'Xabier',
-    'Bruce',
-    'Tony',
-    'Peggy',
-    'Jessica',
-    'Marc'
-  ];
-  
-
-
-const emDuplicates = (mixed, palabra) =>  {
-
-    //Creo array que guardara la posicion del elemento en el array
-    let afo =[];
-
-    //Vemos con el indexOf si hay algun elemento, en caso de no haberlo nos dara el valor de -1
-    let index = mixed.indexOf(palabra);
-    afo.push(index);
-
-    //El valor obtenido lo incluyo en el array contenedor de las posiciones diferentes de los elementos repetidos
-    // Creo un if para  en el caso de ser -1 devolver false sino, seguir comprobando los siguientes elementos repetidos en caso de haberlo
-    
-    
-    if (afo.includes(-1)==true){return false;}
-    else{
-        //comprobamos el largo del array
-        let largo = mixed.length
-
-        //mientras estemos dentro del rango del array contenedor de posiciones seguiremos comprobando que existan repetidos
-        while (index<largo) {
-            index++;
-            //decimos que hacemos indexOf  apartir de donde lo dejamos el primero encontramos mas 1
-            //Si es diferente a -1 los seguiremos puseando y volveremos a realizar otra vuelta en el bucle while
-            if(mixed.indexOf(palabra, index ) != -1){
-            index = mixed.indexOf(palabra,index);
-            afo.push(index);} 
-        }
-    return "true "+afo;
-
-    }
- 
-   }
-  console.log(emDuplicates(nameFinder, "Tony"));
-
-
-
-
+console.log(promedio2(mixedElements));
 
