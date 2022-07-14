@@ -22,3 +22,38 @@ const findLongestWord = (list) => {
 
 console.log(findLongestWord(avengers));
 
+
+/*-----------------------------------------------------------------------
+----------------**Iteración #3: Calcular la suma**----------------------
+-----------------------------------------------------------------------*/
+
+const numbers = [1, 2, 3, 5, 45, 37, 58];
+
+
+const sumAll = (listNumbers) => {
+ 
+  let contador = 0;
+ 
+  for (let value of listNumbers) {
+    contador += value;
+  }
+  // Retornamos el total
+  return contador;
+}
+
+
+let sumFinal = sumAll(numbers);
+
+console.log(sumFinal);
+
+
+
+
+
+
+
+
+
+
+
+
