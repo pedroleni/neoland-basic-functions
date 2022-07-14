@@ -87,122 +87,28 @@ console.log(promedio2(mixedElements));
 ---------------------**Iteración #6: Valores únicos**---------------------
 -----------------------------------------------------------------------*/
 
-const counterWords = [
-    'code',
-    'repeat',
-    'eat',
-    'sleep',
-    'code',
-    'enjoy',
-    'sleep',
-    'code',
-    'enjoy',
-    'upgrade',
-    'code'
+const duplicates = [
+    'sushi',
+    'pizza',
+    'burger',
+    'potatoe',
+    'pasta',
+    'ice-cream',
+    'pizza',
+    'chicken',
+    'onion rings',
+    'pasta',
+    'soda'
   ];
-
-  // tenemos que contar cuantos hay de cada elemento en el array repetido 
-const repeatCounter =(array) => {
-    //incializamos un contador y un array donde guardaremos el nombre del elemento y la cantidad 
-    let contador = 0;
-    let arrayRepeticiones = [];
-
-    //recorremos el array introducido por parametro 
-    counterWords.forEach (( Element)=>{
-        //una vez salido del segudo bucle hay que volver a inicializar a 0 el contador para contar el siguiente elemento
-        contador =0;
-
-        //ponemos un doble forEach para una vez cogido el elemento, iterarlo por todo el array de nuevo
-        //esto nos va a generar que los elementos repetidos los guarde en el arrayRpeticiones repetidos, pero luego lo solucionaremos 
-        counterWords.forEach ((repetidoElemento)=>{
-
-            //si aparece, incrementaremos el contador
-            if (Element == repetidoElemento)contador++;})
-            //una vez contados guardamos en el array creado con el valor del elemento y su cantidad
-            arrayRepeticiones.push(Element+" "+contador)
-       
+  const emoveDuplicates = (mixed) =>  {
+    const result = [];
+    mixed.forEach ((item)=>{
+      if(!result.includes(item)){
+        result.push(item);}
     })
-    //Ahora vamos a hacer otro array con los valores sin repetir
-    let noRepet = [];
-
-    arrayRepeticiones.forEach( (elemento) => {
-        if (!noRepet.includes(elemento)) {
-            noRepet.push(elemento);
-        }
-        });
-    
-    return noRepet;
-    
-}
-
-console.log(repeatCounter(counterWords));
-
-//[ 'code 4', 'repeat 1', 'eat 1', 'sleep 2', 'enjoy 2', 'upgrade 1' ]
-
-
-/*-----------------------------------------------------------------------
----------------------**Iteración #7: Buscador de nombres**-------------------
------------------------------------------------------------------------*/
-
-
-//He modifiicado el array dado para que haya elementos repetidos y no sea tan 
-//sencillo como poner un simple indexOf para saber el primer indice
-const nameFinder = [
-    'Peter',
-    'Steve',
-    'Tony',
-    'Logan',
-    'Natasha',
-    'Clint',
-    'Tony',
-    'Xabier',
-    'Bruce',
-    'Tony',
-    'Peggy',
-    'Jessica',
-    'Marc'
-  ];
   
-
-
-const emDuplicates = (mixed, palabra) =>  {
-
-    //Creo array que guardara la posicion del elemento en el array
-    let afo =[];
-
-    //Vemos con el indexOf si hay algun elemento, en caso de no haberlo nos dara el valor de -1
-    let index = mixed.indexOf(palabra);
-    afo.push(index);
-
-    //El valor obtenido lo incluyo en el array contenedor de las posiciones diferentes de los elementos repetidos
-    // Creo un if para  en el caso de ser -1 devolver false sino, seguir comprobando los siguientes elementos repetidos en caso de haberlo
-    
-    
-    if (afo.includes(-1)==true){return false;}
-    else{
-        //comprobamos el largo del array
-        let largo = mixed.length
-
-        //mientras estemos dentro del rango del array contenedor de posiciones seguiremos comprobando que existan repetidos
-        while (index<largo) {
-            index++;
-            //decimos que hacemos indexOf  apartir de donde lo dejamos el primero encontramos mas 1
-            //Si es diferente a -1 los seguiremos puseando y volveremos a realizar otra vuelta en el bucle while
-            if(mixed.indexOf(palabra, index ) != -1){
-            index = mixed.indexOf(palabra,index);
-            afo.push(index);} 
-        }
-    return "true "+afo;
-
-    }
- 
-   }
-  console.log(emDuplicates(nameFinder, "Tony"));
-
-
-
-
-
-
+    return result;
+  }
+  console.log(emoveDuplicates(duplicates));
 
 
