@@ -63,7 +63,61 @@ const average = (listN) => {
 let promedio = average(numbersPromedio);
 console.log(promedio);
 
+/*-----------------------------------------------------------------------
+---------------------**Iteración #6: Valores únicos**---------------------
+-----------------------------------------------------------------------*/
 
+const counterWords = [
+    'code',
+    'repeat',
+    'eat',
+    'sleep',
+    'code',
+    'enjoy',
+    'sleep',
+    'code',
+    'enjoy',
+    'upgrade',
+    'code'
+  ];
+
+  // tenemos que contar cuantos hay de cada elemento en el array repetido 
+const repeatCounter =(array) => {
+    //incializamos un contador y un array donde guardaremos el nombre del elemento y la cantidad 
+    let contador = 0;
+    let arrayRepeticiones = [];
+
+    //recorremos el array introducido por parametro 
+    counterWords.forEach (( Element)=>{
+        //una vez salido del segudo bucle hay que volver a inicializar a 0 el contador para contar el siguiente elemento
+        contador =0;
+
+        //ponemos un doble forEach para una vez cogido el elemento, iterarlo por todo el array de nuevo
+        //esto nos va a generar que los elementos repetidos los guarde en el arrayRpeticiones repetidos, pero luego lo solucionaremos 
+        counterWords.forEach ((repetidoElemento)=>{
+
+            //si aparece, incrementaremos el contador
+            if (Element == repetidoElemento)contador++;})
+            //una vez contados guardamos en el array creado con el valor del elemento y su cantidad
+            arrayRepeticiones.push(Element+" "+contador)
+       
+    })
+    //Ahora vamos a hacer otro array con los valores sin repetir
+    let noRepet = [];
+
+    arrayRepeticiones.forEach( (elemento) => {
+        if (!noRepet.includes(elemento)) {
+            noRepet.push(elemento);
+        }
+        });
+    
+    return noRepet;
+    
+}
+
+console.log(repeatCounter(counterWords));
+
+//[ 'code 4', 'repeat 1', 'eat 1', 'sleep 2', 'enjoy 2', 'upgrade 1' ]
 
 
 
