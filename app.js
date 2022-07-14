@@ -140,3 +140,69 @@ console.log(repeatCounter(counterWords));
 //[ 'code 4', 'repeat 1', 'eat 1', 'sleep 2', 'enjoy 2', 'upgrade 1' ]
 
 
+/*-----------------------------------------------------------------------
+---------------------**Iteración #7: Buscador de nombres**-------------------
+-----------------------------------------------------------------------*/
+
+
+//He modifiicado el array dado para que haya elementos repetidos y no sea tan 
+//sencillo como poner un simple indexOf para saber el primer indice
+const nameFinder = [
+    'Peter',
+    'Steve',
+    'Tony',
+    'Logan',
+    'Natasha',
+    'Clint',
+    'Tony',
+    'Xabier',
+    'Bruce',
+    'Tony',
+    'Peggy',
+    'Jessica',
+    'Marc'
+  ];
+  
+
+
+const emDuplicates = (mixed, palabra) =>  {
+
+    //Creo array que guardara la posicion del elemento en el array
+    let afo =[];
+
+    //Vemos con el indexOf si hay algun elemento, en caso de no haberlo nos dara el valor de -1
+    let index = mixed.indexOf(palabra);
+    afo.push(index);
+
+    //El valor obtenido lo incluyo en el array contenedor de las posiciones diferentes de los elementos repetidos
+    // Creo un if para  en el caso de ser -1 devolver false sino, seguir comprobando los siguientes elementos repetidos en caso de haberlo
+    
+    
+    if (afo.includes(-1)==true){return false;}
+    else{
+        //comprobamos el largo del array
+        let largo = mixed.length
+
+        //mientras estemos dentro del rango del array contenedor de posiciones seguiremos comprobando que existan repetidos
+        while (index<largo) {
+            index++;
+            //decimos que hacemos indexOf  apartir de donde lo dejamos el primero encontramos mas 1
+            //Si es diferente a -1 los seguiremos puseando y volveremos a realizar otra vuelta en el bucle while
+            if(mixed.indexOf(palabra, index ) != -1){
+            index = mixed.indexOf(palabra,index);
+            afo.push(index);} 
+        }
+    return "true "+afo;
+
+    }
+ 
+   }
+  console.log(emDuplicates(nameFinder, "Tony"));
+
+
+
+
+
+
+
+
