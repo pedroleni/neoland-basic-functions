@@ -196,13 +196,13 @@ const repeatCounter =(array) => {
     let arrayRepeticiones = [];
 
     //recorremos el array introducido por parametro 
-    counterWords.forEach (( Element)=>{
+    array.forEach (( Element)=>{
         //una vez salido del segudo bucle hay que volver a inicializar a 0 el contador para contar el siguiente elemento
         contador =0;
 
         //ponemos un doble forEach para una vez cogido el elemento, iterarlo por todo el array de nuevo
         //esto nos va a generar que los elementos repetidos los guarde en el arrayRpeticiones repetidos, pero luego lo solucionaremos 
-        counterWords.forEach ((repetidoElemento)=>{
+        array.forEach ((repetidoElemento)=>{
 
             //si aparece, incrementaremos el contador
             if (Element == repetidoElemento)contador++;})
@@ -222,6 +222,8 @@ const repeatCounter =(array) => {
     return noRepet;
     
 }
+
+
 
 console.log(repeatCounter(counterWords));
 
